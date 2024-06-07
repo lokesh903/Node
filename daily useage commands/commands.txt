@@ -1,0 +1,103 @@
+Sequelize
+
+1.generate migration -  npx sequelize-cli migration:generate --name create-ambassador-requests
+2.run migration - npx sequelize-cli db:migrate
+3.undo migration - npx sequelize-cli db:migrate:undo
+    a. undo specific - npx sequelize db:migrate:undo --name your_migration_file.js
+4.edit migration -
+                module.exports = {
+                up: async (queryInterface, Sequelize) => {
+                    await queryInterface.addColumn('YourTableName', 'new_attribute', {
+                    type: Sequelize.STRING,
+                    allowNull: true, // Set to false if the attribute should not allow null values
+                    });
+                },
+
+                down: async (queryInterface, Sequelize) => {
+                    await queryInterface.removeColumn('YourTableName', 'new_attribute');
+                },
+                };
+
+    b. npx sequelize-cli db:migrate:status -> status of migrations 
+5.edit migratoin for creating table 
+
+        up: async (queryInterface, Sequelize) => {
+            await queryInterface.createTable('ambassador_requests', {
+            id: {
+                type: Sequelize.INTEGER,
+                primaryKey: true,
+                autoIncrement: true,
+            },
+            user_id: {
+                type: Sequelize.INTEGER,
+                allowNull: false,
+                references: {
+                model: 'Users', // Assuming you have a "Users" table
+                key: 'id',
+                },
+            },
+            sent_time: {
+                type: Sequelize.DATE,
+                allowNull: false,
+            },
+            status: {
+                type: Sequelize.ENUM('active', 'inactive', 'accepted', 'rejected'),
+                allowNull: false,
+                defaultValue: 'active',
+            },
+            createdAt: {
+                type: Sequelize.DATE,
+                allowNull: false,
+            },
+            updatedAt: {
+                type: Sequelize.DATE,
+                allowNull: false,
+            },
+            });
+
+
+6. Enum representation in sequelize 
+        type: Sequelize.ENUM('active', 'inactive'),
+                allowNull: false,
+                defaultValue: 'active',
+        
+7. basic function implimentation in models initiations
+
+        // Class method to get referral counts for all users
+            static async findBestPerformers(whereOptions) {
+                try {
+                    const users = await this.findAndCountAll(whereOptions);
+                    const bestPerformers = [];
+
+                    for (const user of users.rows) {
+                    const count = await this.count({
+                        where: {
+                        referred_by: user.referral_code,
+                        },
+                    });
+                    
+                    bestPerformers.push({...user.dataValues,shareCount:count})
+                    }
+                    bestPerformers.sort((a,b)=>b.shareCount-a.shareCount)
+
+                    return {count:users.count,rows:bestPerformers};
+                } catch (error) {
+                    throw new Error(`Error getting referral counts`);
+                }
+            }
+     
+8. basic function implimentation in models initiations
+
+
+9. seeders 
+
+    1. npx sequelize-cli seed:generate --name demo-settings
+    2. npx sequelize-cli db:seed:all
+    3. npx sequelize-cli db:seed:undo:all
+    4. npx sequelize-cli db:seed --seed <SeederFileName.js>
+
+10 free a port 
+
+    1.netstat -ano | findstr :3306
+    2.taskkill /PID 5416 /F
+
