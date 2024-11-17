@@ -1,0 +1,23 @@
+1. Is Node.js single-threaded? = Yes
+2. What is the difference between Synchronous and Asynchronous functions? = https://www.geeksforgeeks.org/synchronous-and-asynchronous-in-javascript/
+Execution Blocking,Waiting for Completion,Return Value, Error Handling, Usage Scenario
+3. What type of exports do we have in nodejs ?
+    1. Named Exports: exports.function1 = () => {
+                        console.log("This is function1");
+                    }
+                    exports.function2 = () => {
+                        console.log("This is function2");
+                    }
+                    const { function1, function2 } = require('./module.js');    
+    2. Default Exports:
+                    module.exports = myFunction;
+                    const myFunction = require('./module.js');
+                    When importing a default export, you can assign it to any variable name you choose.
+
+4. What do you mean by event loop in Node.js?
+ans. The event loop in Node.js is a mechanism that allows it to handle multiple asynchronous tasks concurrently within a single thread. It continuously listens for events and executes associated callback functions.
+
+5. What is REPL in Node.js?
+
+REPL in Node.js stands for Read, Evaluate, Print, and Loop. It is a computer environment similar to the shell 
+

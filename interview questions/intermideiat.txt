@@ -1,0 +1,15 @@
+1. What is the order in which control flow statements get executed?
+
+ans. The order in which the statements are executed is as follows:
+    Execution and queue handling
+    Collection of data and storing it
+    Handling concurrency
+    Executing the next lines of code
+
+2. What are the main disadvantages of Node.js?
+
+ans. Here are some main disadvantages of Node.js listed below:
+    Single-threaded nature: May not fully utilize multi-core CPUs, limiting performance.
+    NoSQL preference: Relational databases like MySQL aren’t commonly used.
+    Rapid API changes: Frequent updates can introduce instability and compatibility issues.
+
