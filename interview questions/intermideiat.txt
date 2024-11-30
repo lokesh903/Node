@@ -13,3 +13,4 @@ ans. Here are some main disadvantages of Node.js listed below:
     NoSQL preference: Relational databases like MySQL aren’t commonly used.
     Rapid API changes: Frequent updates can introduce instability and compatibility issues.
 
+3. What is event-driven programming in Node.js?

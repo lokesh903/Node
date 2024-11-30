@@ -21,3 +21,8 @@ ans. The event loop in Node.js is a mechanism that allows it to handle multiple 
 
 REPL in Node.js stands for Read, Evaluate, Print, and Loop. It is a computer environment similar to the shell 
 
+6. What is the difference between an HTML tag and an HTML element?
+<p>Hello, world!</p> is the element.
+<p> is the opening tag.
+</p> is the closing tag.
+
