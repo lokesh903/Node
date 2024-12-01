@@ -1,5 +1,4 @@
 // process.env.UV_THREADPOOL_SIZE = 4;
-// $env:UV_THREADPOOL_SIZE=6;
 const fs = require('fs')
 const crypto = require('crypto');
 const https = require('https')
