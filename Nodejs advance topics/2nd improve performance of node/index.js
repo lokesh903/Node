@@ -2,9 +2,9 @@ const cluster = require("cluster");
 cluster.schedulingPolicy = cluster.SCHED_RR
 if (cluster.isMaster) {
   cluster.fork();
-  cluster.fork();
-//   cluster.fork();
-//   cluster.fork();
+  // cluster.fork();
+  // cluster.fork();
+  // cluster.fork();
 } else {
   const express = require("express");
   const app = express();

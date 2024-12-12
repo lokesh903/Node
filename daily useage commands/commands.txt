@@ -98,6 +98,10 @@ Sequelize
 
 10 free a port 
 
+    for windows
     1.netstat -ano | findstr :3306
     2.taskkill /PID 5416 /F
 
+    for linux
+    lsof -i :4002
+    kill -9 12345

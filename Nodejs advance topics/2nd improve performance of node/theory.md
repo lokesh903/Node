@@ -34,3 +34,10 @@ because 2 cpu's will jump over all the 6 threads and that's y 6 req = 6 cpu sec 
 on other hand if we have only 2 children then first 2 reqs will be processed in 1 sec 
 then other 2 will be completed at the end of 2nd sec , then next 2 in next one sec
 
+### how to use this on server 
+use pm2 start index.js -i 0 
+
+it will run node in cluster mode and with avalable ammount of logical cores available
+
+
+
