@@ -15,9 +15,55 @@ so its better to use cache server in between mongoose and mongodb
 
 https://redis.io/docs/latest/operate/oss_and_stack/install/install-redis/install-redis-on-windows/
 
-basic commands to use 
-
+basic commands to use [link ](https://learn.microsoft.com/en-us/windows/wsl/basic-commands)
+```
 wsl --distribution <Distribution Name> --user <User Name>
+```
+check versions 
+```
+wsl -l -v
+wsl --list --verbose
+```
+command to start specific wsl 
+```
+wsl --distribution Ubuntu-22.04
+```
+
+Then flow [doc](https://redis.io/docs/latest/operate/oss_and_stack/install/install-redis/install-redis-on-windows/) to install redis 
 
 
+
+### basic commands to use redis
+
+to start redis server
+``` 
+sudo service redis-server start
+```
+
+Connect to Redis
+```
+redis-cli
+```
+
+Test the connection with the ping command:
+```
+127.0.0.1:6379> ping
+PONG
+```
+### basic commands for node-redis
+
+set key value in redis 
+```
+client.set('key','value')
+```
+
+set key value in redis 
+```
+client.set('key','value')
+```
+
+delete all data in redis server
+```
+client.flushall()
+```
 

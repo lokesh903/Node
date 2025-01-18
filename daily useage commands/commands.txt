@@ -105,3 +105,4 @@ Sequelize
     for linux
     lsof -i :4002
     kill -9 12345
+
